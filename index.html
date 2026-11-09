@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#F6F1E8" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="记账本" />
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="apple-touch-icon" href="./icons/icon-192.png" />
+<link rel="stylesheet" href="./style.css?v=4" />
+<title>记账本</title>
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true">
+<symbol id="i-utensils" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+<symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
+<symbol id="i-shopping-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10a4 4 0 0 1-8 0"/><path d="M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></symbol>
+<symbol id="i-house" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-gamepad-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></symbol>
+<symbol id="i-pill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></symbol>
+<symbol id="i-book-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></symbol>
+<symbol id="i-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+<symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>
+<symbol id="i-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5"/><rect x="3" y="7" width="18" height="4" rx="1"/></symbol>
+<symbol id="i-arrow-right-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></symbol>
+<symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+<symbol id="i-credit-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/><path d="M6 14h2"/></symbol>
+<symbol id="i-banknote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></symbol>
+<symbol id="i-repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+<symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+<symbol id="i-tags" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13.172 2a2 2 0 0 1 1.414.586l6.71 6.71a2.4 2.4 0 0 1 0 3.408l-4.592 4.592a2.4 2.4 0 0 1-3.408 0l-6.71-6.71A2 2 0 0 1 6 9.172V3a1 1 0 0 1 1-1z"/><path d="M2 7v6.172a2 2 0 0 0 .586 1.414l6.71 6.71a2.4 2.4 0 0 0 3.191.193"/><circle cx="10.5" cy="6.5" r=".5" fill="currentColor"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h.01"/><path d="M3 12h.01"/><path d="M3 19h.01"/><path d="M8 5h13"/><path d="M8 12h13"/><path d="M8 19h13"/></symbol>
+<symbol id="i-chart-column" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+<symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+<symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+<symbol id="i-circle-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></symbol>
+<symbol id="i-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></symbol>
+<symbol id="i-trash-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+<symbol id="i-wallet-cards" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h3.75a2 2 0 0 1 1.6.8l.45.6a4 4 0 0 0 6.4 0l.45-.6a2 2 0 0 1 1.6-.8H21"/><path d="M3 7h18"/><rect x="3" y="3" width="18" height="18" rx="2"/></symbol>
+<symbol id="i-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17V7"/><path d="M16 8h-6a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H8"/><path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></symbol>
+<symbol id="i-book-marked" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.751a.25.25 0 00.407.195l2.28-1.834a.5.5 0 01.627 0l2.28 1.834A.25.25 0 0016 9.751V2"/><path d="M4 19.5v-15A2.5 2.5 0 016.5 2H19a1 1 0 011 1v18a1 1 0 01-1 1H6.5a1 1 0 010-5H20"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></symbol>
+</svg>
+
+<div class="app" id="app">
+
+  <!-- ========== ① 明细 ========== -->
+  <section class="screen active" id="screen-home">
+    <div class="home-head">
+      <div>
+        <div class="sub" id="home-date">11月9日 · 周日</div>
+        <div class="hi" id="greeting">早上好，李高泽</div>
+      </div>
+      <div class="acts">
+        <button class="ib" id="btn-search" aria-label="搜索"><svg class="ic"><use href="#i-search"></use></svg></button>
+        <button class="ib" id="btn-quick-add" aria-label="记一笔"><svg class="ic"><use href="#i-plus"></use></svg></button>
+      </div>
+    </div>
+
+    <div class="card bal">
+      <div class="bal-top"><span>本月结余</span><span class="link" data-goto="stats">明细<svg class="ic sm"><use href="#i-chevron-right"></use></svg></span></div>
+      <div class="bal-v"><span class="cur">¥</span><span id="home-balance">0.00</span></div>
+      <div class="bal-line">
+        <span><i class="dot up"></i>收入 <b class="in" id="home-income">0.00</b></span>
+        <span><i class="dot down"></i>支出 <b class="out" id="home-expense">0.00</b></span>
+        <span><i class="dot tr-d"></i>转账 <b id="home-transfer">0.00</b></span>
+      </div>
+      <div class="bud" id="bud-row">
+        <div class="bud-h"><span id="bud-label">月度预算 ¥0</span><span id="bud-pct">已用 0%</span></div>
+        <div class="bud-track"><i id="bud-fill" style="width:0%"></i></div>
+      </div>
+    </div>
+
+    <div class="quick">
+      <button class="q" data-goto="add"><span class="q-ic accent"><svg class="ic"><use href="#i-circle-plus"></use></svg></span>记一笔</button>
+      <button class="q" id="q-transfer"><span class="q-ic"><svg class="ic"><use href="#i-arrow-right-left"></use></svg></span>转账</button>
+      <button class="q" id="q-bills"><span class="q-ic"><svg class="ic"><use href="#i-receipt"></use></svg></span>账单</button>
+      <button class="q" id="q-budget"><span class="q-ic"><svg class="ic"><use href="#i-target"></use></svg></span>预算</button>
+    </div>
+
+    <div class="bills-scroll" id="home-bills"></div>
+  </section>
+
+  <!-- ========== ② 记一笔 ========== -->
+  <section class="screen" id="screen-add">
+    <div class="ah">
+      <button class="ib" id="add-close" aria-label="关闭"><svg class="ic"><use href="#i-x"></use></svg></button>
+      <span class="ah-t">记一笔</span>
+      <span class="ah-r" id="add-date">今天</span>
+    </div>
+    <div class="seg" id="add-seg">
+      <span class="on" data-type="expense">支出</span>
+      <span data-type="income">收入</span>
+      <span data-type="transfer">转账</span>
+    </div>
+    <div class="amt">
+      <div class="amt-l" id="amount-label">支出金额</div>
+      <div class="amt-v"><span class="cur">¥</span><span id="amount-text">0.00</span><i class="caret"></i></div>
+    </div>
+
+    <div class="cg" id="category-grid"></div>
+
+    <div class="transfer-box" id="transfer-box" hidden>
+      <div class="tf-row"><span class="tf-l">从</span><select id="from-account"></select></div>
+      <div class="tf-row"><span class="tf-l">到</span><select id="to-account"></select></div>
+      <div class="tf-row"><span class="tf-l">用途</span><select id="transfer-category"></select></div>
+    </div>
+
+    <div class="note">
+      <svg class="ic"><use href="#i-pencil"></use></svg>
+      <input id="note-input" placeholder="添加备注…" maxlength="40" />
+    </div>
+
+    <div class="pad" id="keypad">
+      <button class="k" data-k="1">1</button>
+      <button class="k" data-k="2">2</button>
+      <button class="k" data-k="3">3</button>
+      <button class="k" data-k="4">4</button>
+      <button class="k" data-k="5">5</button>
+      <button class="k" data-k="6">6</button>
+      <button class="k" data-k="7">7</button>
+      <button class="k" data-k="8">8</button>
+      <button class="k" data-k="9">9</button>
+      <button class="k" data-k=".">.</button>
+      <button class="k" data-k="0">0</button>
+      <button class="k mute" data-k="del" aria-label="删除"><svg class="ic"><use href="#i-x"></use></svg></button>
+    </div>
+    <button class="save" id="save-btn">保存</button>
+  </section>
+
+  <!-- ========== ③ 图表 ========== -->
+  <section class="screen" id="screen-stats">
+    <div class="ah">
+      <span class="ah-t">图表</span>
+      <div class="month-nav">
+        <button class="mn-btn" id="stat-prev" aria-label="上个月"><svg class="ic sm"><use href="#i-chevron-left"></use></svg></button>
+        <span id="stat-month">2026年11月</span>
+        <button class="mn-btn" id="stat-next" aria-label="下个月"><svg class="ic sm"><use href="#i-chevron-right"></use></svg></button>
+      </div>
+    </div>
+    <div class="donut-wrap">
+      <div class="donut" id="donut">
+        <div class="d-hole">
+          <span class="d-l">总支出</span>
+          <b class="d-v" id="stat-total">¥0.00</b>
+          <span class="d-s" id="stat-cmp">本月</span>
+        </div>
+      </div>
+    </div>
+    <div class="rank" id="rank"></div>
+    <div class="week">
+      <div class="wk-h"><span>近 7 天支出</span><span id="week-avg">日均 ¥0.00</span></div>
+      <div class="bars" id="bars"></div>
+    </div>
+  </section>
+
+  <!-- ========== ④ 资产 ========== -->
+  <section class="screen" id="screen-assets">
+    <div class="ah">
+      <span class="ah-t">资产</span>
+      <button class="ib" id="add-account" aria-label="添加账户"><svg class="ic"><use href="#i-plus"></use></svg></button>
+    </div>
+    <div class="net">
+      <div class="net-l">净资产</div>
+      <div class="net-v">¥<span id="net-assets">0.00</span></div>
+      <div class="net-line"><span id="total-assets">总资产 ¥0</span><span id="total-liabilities">总负债 ¥0</span></div>
+    </div>
+    <div class="sec-h">资金账户<span id="funds-total">¥0</span></div>
+    <div class="card acct" id="funds-list"></div>
+    <div class="sec-h">信用账户<span class="out" id="credits-total">-¥0</span></div>
+    <div class="card acct" id="credits-list"></div>
+    <div class="assets-tip">余额由账单自动计算，点击账户可编辑</div>
+  </section>
+
+  <!-- ========== ⑤ 我的 ========== -->
+  <section class="screen" id="screen-profile">
+    <div class="ah">
+      <span class="ah-t">我的</span>
+      <button class="ib" aria-label="设置"><svg class="ic"><use href="#i-settings"></use></svg></button>
+    </div>
+    <div class="me" id="profile-me">
+      <div class="ava" id="profile-avatar">李</div>
+      <div>
+        <div class="me-n" id="profile-name">李高泽</div>
+        <div class="me-s" id="profile-sub">ID —</div>
+      </div>
+      <svg class="ic sm chev"><use href="#i-chevron-right"></use></svg>
+    </div>
+    <div class="stats3">
+      <div><b id="profile-days">0</b><span>记账天数</span></div>
+      <div><b id="profile-streak">0</b><span>连续记账</span></div>
+      <div><b id="profile-total">¥0</b><span>累计结余</span></div>
+    </div>
+    <div class="card menu">
+      <button class="mi" id="mi-profile"><span class="mi-ic"><svg class="ic"><use href="#i-pencil"></use></svg></span><span class="mi-t">修改昵称</span><svg class="ic sm chev"><use href="#i-chevron-right"></use></svg></button>
+      <button class="mi" data-goto="categories"><span class="mi-ic"><svg class="ic"><use href="#i-tags"></use></svg></span><span class="mi-t">分类管理</span><svg class="ic sm chev"><use href="#i-chevron-right"></use></svg></button>
+      <button class="mi" data-goto="assets"><span class="mi-ic"><svg class="ic"><use href="#i-wallet-cards"></use></svg></span><span class="mi-t">资产账户</span><svg class="ic sm chev"><use href="#i-chevron-right"></use></svg></button>
+      <button class="mi" id="mi-budget"><span class="mi-ic"><svg class="ic"><use href="#i-target"></use></svg></span><span class="mi-t">预算设置</span><svg class="ic sm chev"><use href="#i-chevron-right"></use></svg></button>
+      <button class="mi" data-soon="记账提醒"><span class="mi-ic"><svg class="ic"><use href="#i-bell"></use></svg></span><span class="mi-t">记账提醒</span><svg class="ic sm chev"><use href="#i-chevron-right"></use></svg></button>
+      <button class="mi" data-soon="数据备份"><span class="mi-ic"><svg class="ic"><use href="#i-download"></use></svg></span><span class="mi-t">数据备份</span><svg class="ic sm chev"><use href="#i-chevron-right"></use></svg></button>
+      <button class="mi" data-soon="安全与隐私"><span class="mi-ic"><svg class="ic"><use href="#i-shield-check"></use></svg></span><span class="mi-t">安全与隐私</span><svg class="ic sm chev"><use href="#i-chevron-right"></use></svg></button>
+    </div>
+    <div class="foot">记账本 v1.1 · 数据保存在本地</div>
+  </section>
+
+  <!-- ========== ⑥ 分类管理 ========== -->
+  <section class="screen" id="screen-categories">
+    <div class="ah">
+      <button class="ib" id="cat-back" aria-label="返回"><svg class="ic"><use href="#i-chevron-left"></use></svg></button>
+      <span class="ah-t">分类管理</span>
+      <button class="ib" id="cat-new" aria-label="新建分类"><svg class="ic"><use href="#i-plus"></use></svg></button>
+    </div>
+    <div class="seg" id="cat-seg">
+      <span class="on" data-type="expense">支出</span>
+      <span data-type="income">收入</span>
+      <span data-type="transfer">转账</span>
+    </div>
+    <div class="card cat-card" id="cat-list"></div>
+    <button class="newcat" id="newcat-btn"><svg class="ic"><use href="#i-plus"></use></svg>新建分类</button>
+    <div class="hint">支出 / 收入 / 转账分类各自独立<br>可自定义名称、图标与颜色</div>
+  </section>
+
+  <!-- ========== 底部导航 ========== -->
+  <nav class="nav">
+    <button class="ni on" data-goto="home"><svg class="ic"><use href="#i-list"></use></svg><span>明细</span></button>
+    <button class="ni" data-goto="stats"><svg class="ic"><use href="#i-chart-column"></use></svg><span>图表</span></button>
+    <button class="nav-add" data-goto="add" aria-label="记一笔"><span class="fab"><svg class="ic"><use href="#i-plus"></use></svg></span></button>
+    <button class="ni" data-goto="assets"><svg class="ic"><use href="#i-wallet-cards"></use></svg><span>资产</span></button>
+    <button class="ni" data-goto="profile"><svg class="ic"><use href="#i-user"></use></svg><span>我的</span></button>
+  </nav>
+
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="sheet-mask" id="sheet-mask" hidden></div>
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet-grip"></div>
+  <div class="sheet-head"><span id="sheet-title">标题</span><button class="ib" id="sheet-close" aria-label="关闭"><svg class="ic"><use href="#i-x"></use></svg></button></div>
+  <div class="sheet-body" id="sheet-body"></div>
+</div>
+
+<script src="./app.js?v=4"></script>
+</body>
+</html>
