@@ -55,3 +55,9 @@
 - 深色模式
 - 多账本切换
 
+## 🚀 安装与启动
+### 克隆仓库
+```bash
+git clone https://github.com/ymz-code/Manual-bookkeeping-gadget.git
+cd Manual-bookkeeping-gadget
+
